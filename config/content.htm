@@ -52,13 +52,79 @@
 <h2>w7</h2>
 <p><br/><br/><br/><br/><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/-MAWvA-JTCU" width="560"></iframe></p>
 <h3>w11_hw</h3>
-<p>題目二</p>
+<p><a href="https://gist.githubusercontent.com/shung0625/375d5552bbd14a8a923ed5aad22b1408/raw/cc5edad52bd0f45f63c33c5d338f46d64a7d4412/hw2.py">題目二</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 建立畫布
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+# 每格的像素大小
+gs = 40  # 每格的像素數
+ctx = canvas.getContext("2d")
+
+# 繪製矩形格子
+def dRect(lux, luy, w, h, s=1, c="#cccccc"):
+    ctx.lineWidth = s
+    ctx.strokeStyle = c
+    ctx.beginPath()
+    ctx.rect(lux, luy, w, h)
+    ctx.stroke()
+
+# 畫布上的網格
+def grid(width, height, grid_pix):
+    for i in range(width):
+        for j in range(height):
+            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix, 1, "lightgrey")
+
+# 填充圓形中的格子
+def fill(x, y, color):
+    ctx.fillStyle = color
+    ctx.fillRect(x * gs, y * gs, gs, gs)
+
+# 主程式：繪製圓形在 10x10 網格中
+def draw_circle():
+    grid(10, 10, gs)  # 建立網格
+    center_x, center_y = 5, 5  # 圓心在 10x10 網格的中心
+    radius = 4  # 半徑為 4 格
+
+    for y in range(10):
+        for x in range(10):
+            # 計算到圓心的距離
+            distance = ((x - center_x) ** 2 + (y - center_y) ** 2) ** 0.5
+            # 如果距離小於半徑且接近邊界，填充該格
+            if abs(distance - radius) &lt; 0.5:
+                fill(x, y, "black")
+
+# 繪製圓形
+draw_circle()
+</pre>
 <p><span>此提解法與第一題大同小異 但問GPT的方式需要改變 產生的圖形也大不相同。</span></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/J4j8z3tRg60" width="560"></iframe></p>
-<p>題目一</p>
+<p><a href="https://gist.githubusercontent.com/shung0625/375d5552bbd14a8a923ed5aad22b1408/raw/cc5edad52bd0f45f63c33c5d338f46d64a7d4412/hw1.py">題目一</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import math
+
+# 圓的中心和半徑
+center_x, center_y = 5, 5  # 圓心 (以0開始計算，所以中心是(5,5))
+radius = 4  # 半徑
+
+# 創建10x10的字符矩陣
+grid_size = 10
+for y in range(grid_size):
+    for x in range(grid_size):
+        # 計算到圓心的距離
+        distance = math.sqrt((x - center_x) ** 2 + (y - center_y) ** 2)
+        # 如果距離接近半徑，打印 '*'
+        if abs(distance - radius) &lt; 0.5:
+            print('*', end='')
+        else:
+            print(' ', end='')
+    print()  # 換行</pre>
 <p><span>上個禮拜做w10的作業後讓我這禮拜w11做得更得心應手，有蠻多步驟是跟上禮拜題目是相關的，只要有確實製作相關的解題技巧與了解老師上課所解釋的東西，就更容易做出相關的題目。</span></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/SY9t5jhP6Yc" width="560"></iframe></p>
-<h3>w12</h3>
+<h3>w12_hw</h3>
 <p><a href="https://gist.githubusercontent.com/shung0625/ea2594fd5730073a3332e5234dc10bee/raw/b8454929a5b0f2f9a518ffab8b7b668afa564c73/hw.py">題目一</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">n=11 
 space = '_'
@@ -69,7 +135,8 @@ for y in range(n):
         print("(--++--++--)",sep="")
 </pre>
 <p></p>
-<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/rgzhjTKpn0U" width="560"></iframe></span></p><h1>HW 2</h1>
+<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/rgzhjTKpn0U" width="560"></iframe></span></p>
+<h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
