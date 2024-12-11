@@ -162,86 +162,139 @@ ctx.lineTo(210, 210)  # 第一條對角線
 ctx.stroke()</pre>
 <p><img alt="" height="194" src="./../images/螢幕擷取畫面 2024-12-05 151822.png" width="197"/></p>
 <p><a href="https://miniature-space-umbrella-pjpjgqwwqwrwcwqv-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/9b67f0b94b5a6673f9d786929f003758/raw/37e4dd31bc318b4e4ab64e64706883db844bfae4/w13.py">題目二</a> 回家作業</p>
+<p>失敗的答案</p>
 <p><img alt="" height="152" src="./../images/螢幕擷取畫面 2024-12-05 193243.png" width="184"/></p>
 <p><span>應老師要求設法在各線條所圍成的封閉區域塗上不同顏色，但問了約20次且問法皆有改變，卻還是無法生成出每個區域都有不同顏色的指令，代表著現今AI發展雖然進步飛快，但目前技術還是無法生成出過於複雜的指令，還需要再觀摩個幾年等待，讓AI科技變得更成熟。</span></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+<p><span>補貼正確的答案</span></p>
+<p><span><img alt="" height="151" src="./../images/螢幕擷取畫面 2024-12-11 165544.png" width="164"/></span></p>
+<p><a href="https://miniature-space-umbrella-pjpjgqwwqwrwcwqv-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/9b67f0b94b5a6673f9d786929f003758/raw/74c17a9006770970409d95b63f3f14c1bc3f2265/w13.2py">正確答案程式碼</a></p>
+<pre>from browser import html
 from browser import document as doc
-
-# 建立 canvas
-canvas = html.CANVAS(width=300, height=300)  # 畫布大小
-brython_div = doc["brython_div1"]  # HTML 中的容器元素
+import math
+  
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
 brython_div &lt;= canvas
-
+  
 ctx = canvas.getContext("2d")
-ctx.lineWidth = 2  # 線條寬度設定
-
-# 第一個矩形的參數
-rect1_x, rect1_y = 50, 50  # 矩形左上角座標
-rect1_size = 100  # 矩形邊長
-
-# 第二個矩形的參數
-rect2_x, rect2_y = 100, 100  # 矩形左上角座標
-rect2_size = 100  # 矩形邊長
-
-# 填充第一個矩形的外接圓內部
-center_x1 = rect1_x + rect1_size / 2
-center_y1 = rect1_y + rect1_size / 2
-radius1 = (rect1_size * (2 ** 0.5)) / 2
-ctx.fillStyle = "rgba(255, 255, 0, 0.5)"  # 半透明黃色
+ctx.lineWidth = 4
+ 
+#混色的
+ctx.globalCompositeOperation = "screem"
+ 
+ 
+#黑邊圓*2(每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+#第一個圓
 ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
+ctx.arc(160, 160, 141, 0.25 * math.pi,0.75 * math.pi)
+ctx.fillStyle = "Turquoise"
 ctx.fill()
-
-# 填充第二個矩形的外接圓內部
-center_x2 = rect2_x + rect2_size / 2
-center_y2 = rect2_y + rect2_size / 2
-radius2 = (rect2_size * (2 ** 0.5)) / 2
-ctx.fillStyle = "rgba(128, 0, 128, 0.5)"  # 半透明紫色
+ctx.stroke()
+ 
 ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
+ctx.arc(160, 160, 141, 0.75 * math.pi,1.25 * math.pi)
+ctx.fillStyle = "Tomato"
 ctx.fill()
-
-# 填充第一個矩形內部
-ctx.fillStyle = "lightblue"  # 填充顏色
+ctx.stroke()
+ 
 ctx.beginPath()
-ctx.rect(rect1_x, rect1_y, rect1_size, rect1_size)
+ctx.arc(160, 160, 141, 1.25 * math.pi,1.75 * math.pi)
+ctx.fillStyle = "SpringGreen"
 ctx.fill()
-
-# 填充第二個矩形內部
-ctx.fillStyle = "lightgreen"  # 填充顏色
+ctx.stroke()
+ 
 ctx.beginPath()
-ctx.rect(rect2_x, rect2_y, rect2_size, rect2_size)
+ctx.arc(160, 160, 141, 1.75 * math.pi,0.25 * math.pi)
+ctx.fillStyle = "FloralWhite"
 ctx.fill()
-
-# 繪製第一個矩形的對角線
-ctx.strokeStyle = 'blue'  # 對角線顏色
-ctx.beginPath()
-ctx.moveTo(rect1_x, rect1_y)  # 左上角
-ctx.lineTo(rect1_x + rect1_size, rect1_y + rect1_size)  # 右下角
 ctx.stroke()
-
-# 繪製第一個矩形的邊框
-ctx.strokeStyle = "red"  # 邊框顏色
+ 
+#第二個圓
 ctx.beginPath()
-ctx.rect(rect1_x, rect1_y, rect1_size, rect1_size)
+ctx.arc(260, 260, 141, 1.25 * math.pi,1.75 * math.pi)
+ctx.fillStyle = "Purple"
+ctx.fill()
 ctx.stroke()
-
-# 繪製第二個矩形的邊框
+ 
 ctx.beginPath()
-ctx.rect(rect2_x, rect2_y, rect2_size, rect2_size)
+ctx.arc(260, 260, 141, 1.75 * math.pi,0.25 * math.pi)
+ctx.fillStyle = "OliveDrab"
+ctx.fill()
 ctx.stroke()
-
-# 繪製第一個矩形的外接圓邊框
-ctx.strokeStyle = 'black'  # 外接圓邊框顏色
+ 
 ctx.beginPath()
-ctx.arc(center_x1, center_y1, radius1, 0, 2 * 3.14159)
+ctx.arc(260, 260, 141, 0.25 * math.pi,0.75 * math.pi)
+ctx.fillStyle = "Orange"
+ctx.fill()
 ctx.stroke()
-
-# 繪製第二個矩形的外接圓邊框
+ 
 ctx.beginPath()
-ctx.arc(center_x2, center_y2, radius2, 0, 2 * 3.14159)
+ctx.arc(260, 260, 141, 0.75 * math.pi,1.25 * math.pi)
+ctx.fillStyle = "MediumVioletRed"
+ctx.fill()
 ctx.stroke()
-</pre>
+ 
+ 
+#紅方形*2(4個三角形)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.moveTo(60,60)
+ctx.lineTo(60,260)
+ctx.lineTo(260,260)
+ctx.fillStyle = "Gold"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(60,60)
+ctx.lineTo(260,60)
+ctx.lineTo(260,260)
+ctx.fillStyle = "Indigo"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(360,160)
+ctx.lineTo(360,360)
+ctx.fillStyle = "Cyan"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(160,360)
+ctx.lineTo(360,360)
+ctx.fillStyle = "SpringGreen"
+ctx.fill()
+ctx.stroke()
+ 
+  
+#重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(160,260)
+ctx.lineTo(260,260)
+ctx.fillStyle = "Turquoise"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(260,160)
+ctx.lineTo(260,260)
+ctx.fillStyle = "SlateBlue"
+ctx.fill()
+ctx.stroke()
+ 
+ 
+#籃斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath() 
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 260)
+ctx.stroke()</pre>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/VYHIkP1-1ws" width="560"></iframe></p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
