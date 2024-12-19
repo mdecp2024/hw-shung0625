@@ -420,6 +420,87 @@ for i in range(0, len(animals)):  # 同樣遍歷列表索引
 <p><strong>輸出格式</strong>：</p>
 <p>根據條件輸出不同訊息，強調看到的動物是否符合期待。</p>
 <p></p>
+<p>第十題:10_for_search</p>
+<p>程式範例 : <a href="https://miniature-space-umbrella-pjpjgqwwqwrwcwqv-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/ea2594fd5730073a3332e5234dc10bee/raw/1d3c51c7c72a3c7078f8d944901d61a895bfea3c/hw12-10.py">關於手套</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 初始化配件列表
+accessories = ["belt", "hat", "gloves", "sunglasses", "ring"]
+print(accessories)  # 輸出整個配件列表
+# 結果: ['belt', 'hat', 'gloves', 'sunglasses', 'ring']
+
+# 遍歷每個元素及其索引
+for i in range(len(accessories)):  # 使用 len(accessories) 獲取列表長度
+    # 輸出每個元素及其索引
+    print("The element " + accessories[i] + " is in position " + str(i))
+# 結果: 
+# The element belt is in position 0
+# The element hat is in position 1
+# The element gloves is in position 2
+# The element sunglasses is in position 3
+# The element ring is in position 4
+
+# 檢查元素的長度是否等於 6
+for i in range(len(accessories)):
+    if len(accessories[i]) == 6:  # 如果元素長度為 6
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has 6 characters")
+# 結果: 
+# The element gloves is in position 2 and it has 6 characters
+
+# 檢查元素的長度是否小於 6
+for i in range(len(accessories)):
+    if len(accessories[i]) &lt; 6:  # 如果元素長度小於 6
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has less than 6 characters")
+# 結果:
+# The element belt is in position 0 and it has less than 6 characters
+# The element hat is in position 1 and it has less than 6 characters
+# The element ring is in position 4 and it has less than 6 characters
+
+# 設定長度閾值
+n_of_characters = 6
+for i in range(len(accessories)):
+    if len(accessories[i]) &gt; n_of_characters:  # 如果元素長度大於 6
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has more than " + str(n_of_characters) + " characters")
+# 結果:
+# The element sunglasses is in position 3 and it has more than 6 characters
+
+# 檢查元素長度是否不等於 6
+for i in range(len(accessories)):
+    if len(accessories[i]) != n_of_characters:  # 如果元素長度不等於 6
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has a number of characters different from " + str(n_of_characters))
+# 結果:
+# The element belt is in position 0 and it has a number of characters different from 6
+# The element hat is in position 1 and it has a number of characters different from 6
+# The element sunglasses is in position 3 and it has a number of characters different from 6
+# The element ring is in position 4 and it has a number of characters different from 6
+
+# 設定索引閾值
+position = 2
+for i in range(len(accessories)):
+    if i &lt;= position:  # 如果索引小於或等於閾值
+        print("The element " + accessories[i] + " is in position " + str(i) + ", which is less than or equal to " + str(position))
+# 結果:
+# The element belt is in position 0, which is less than or equal to 2
+# The element hat is in position 1, which is less than or equal to 2
+# The element gloves is in position 2, which is less than or equal to 2
+
+# 檢查索引是否大於或等於閾值
+for i in range(len(accessories)):
+    if i &gt;= position:  # 如果索引大於或等於閾值
+        print("The element " + accessories[i] + " is in position " + str(i) + ", which is at least " + str(position))
+# 結果:
+# The element gloves is in position 2, which is at least 2
+# The element sunglasses is in position 3, which is at least 2
+# The element ring is in position 4, which is at least 2
+</pre>
+<p></p>
+<p>概要:</p>
+<p><strong><code>len()</code></strong>：用於計算元素的字元長度。</p>
+<p><strong>條件判斷</strong>：</p>
+<p>使用 <code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>!=</code> 判斷長度或索引是否符合條件。</p>
+<p><strong>索引操作</strong>：</p>
+<p>使用 <code>for i in range(len(accessories))</code> 遍歷列表的每個索引，實現條件檢查和操作。</p>
+<p><strong>靈活的閾值設置</strong>：</p>
+<p>可動態調整長度或索引的閾值，控制輸出內容。</p>
+<p></p>
 <div class="flex-1 overflow-hidden @container/thread">
 <div class="h-full">
 <div class="react-scroll-to-bottom--css-gzkgo-79elbk h-full">
@@ -453,7 +534,8 @@ for i in range(0, len(animals)):  # 同樣遍歷列表索引
 </div>
 </div>
 </div>
-</div><h3>w13_hw</h3>
+</div>
+<h3>w13_hw</h3>
 <p>題目一 課堂作業</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
@@ -607,7 +689,9 @@ ctx.beginPath()
 ctx.moveTo(60, 60)
 ctx.lineTo(260, 260)
 ctx.stroke()</pre>
-<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/VYHIkP1-1ws" width="560"></iframe></p><h1>HW 2</h1>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/VYHIkP1-1ws" width="560"></iframe></p>
+<h3>hw_15</h3>
+<h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
