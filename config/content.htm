@@ -691,7 +691,78 @@ ctx.lineTo(260, 260)
 ctx.stroke()</pre>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/VYHIkP1-1ws" width="560"></iframe></p>
 <h3>h15_hw</h3>
-<h1>HW 2</h1>
+<p><a href="https://miniature-space-umbrella-pjpjgqwwqwrwcwqv-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/0a83bbfde3a2d6dbecaa9e84b80a9f8b/raw/ef9ce937e846a70ee339a1f265f49eec41ecc84a/w15-1">題目一</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 計算從 1 累加到 100 的總和
+total = sum(range(1, 101))
+print(f"從 1 累加到 100 的總和是：{total}")</pre>
+<p></p>
+<p><a href="https://miniature-space-umbrella-pjpjgqwwqwrwcwqv-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/0a83bbfde3a2d6dbecaa9e84b80a9f8b/raw/48b0d0068535b981cd6530b8fdb74739ca7fd48b/w15-2">題目二</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函式 addto，用於計算從 start 到 end 的累加
+def addto(start, end):
+    """
+    計算從 start 到 end 的總和
+    :param start: 起始數字
+    :param end: 結束數字
+    :return: 累加結果
+    """
+    return sum(range(start, end + 1))
+
+# 測試函式
+result = addto(1, 100)
+print(f"從 1 累加到 100 的總和是：{result}")</pre>
+<p>程式碼解釋與概要:<strong>函式 <code>addto</code></strong>:</p>
+<p>接受兩個參數：<code>start</code> 和 <code>end</code>，分別代表起始值與結束值。</p>
+<p>使用 <code>range(start, end + 1)</code> 產生從起始值到結束值的數字序列。</p>
+<p>使用 <code>sum()</code> 函數計算序列的總和並回傳結果。</p>
+<p><strong>範例呼叫</strong>:</p>
+<p><code>addto(1, 100)</code> 的結果是從 1 加到 100 的總和：5050。</p>
+<p><a href="https://miniature-space-umbrella-pjpjgqwwqwrwcwqv-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/0a83bbfde3a2d6dbecaa9e84b80a9f8b/raw/b87754ead0719bf876ac55b6fd873ab1b27eaca5/w15-3">題目三</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函式 add_only_even
+def add_only_even(start, end):
+    """
+    計算從 start 到 end 的所有偶數總和
+    :param start: 起始數字
+    :param end: 結束數字
+    :return: 偶數累加結果
+    """
+    return sum(i for i in range(start, end + 1) if i % 2 == 0)
+
+# 測試函式
+result = add_only_even(1, 100)
+print(f"從 1 到 100 的偶數總和是：{result}")</pre>
+<p></p>
+<p>程式碼解釋與概要</p>
+<p><strong>函式 <code>add_only_even</code></strong>:</p>
+<p>接受兩個參數：<code>start</code> 和 <code>end</code>，分別代表起始值與結束值。</p>
+<p>使用 <strong>生成式 (generator expression)</strong> 過濾出範圍內的偶數。</p>
+<p>使用 <code>sum()</code> 函數計算偶數的總和並回傳結果。</p>
+<p><strong>範例測試</strong>:</p>
+<p>呼叫 <code>add_only_even(1, 100)</code>，結果是 1 到 100 的偶數總和：2550。</p>
+<p><a href="https://miniature-space-umbrella-pjpjgqwwqwrwcwqv-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/0a83bbfde3a2d6dbecaa9e84b80a9f8b/raw/02d58a20f63ba1d0478e1762de529d89ddc0900c/w15-4">題目四</a></p>
+<p></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_avoid_8_even(start, end):
+    """
+    計算從 start 到 end 的整數累加結果，但避開數字中包含 '8' 的整數，並僅累加偶數
+    :param start: 起始數字
+    :param end: 結束數字
+    :return: 累加結果（不包含數字帶 '8' 且僅偶數）
+    """
+    return sum(i for i in range(start, end + 1) if '8' not in str(i) and i % 2 == 0)
+
+# 測試函式
+result_even = add_avoid_8_even(1, 100)
+print(f"從 1 到 100 的累加結果（避開數字中包含 '8' 且僅偶數）：{result_even}")
+</pre>
+<p></p>
+<p>程式碼解釋與概要:</p>
+<p><code>range(start, end + 1)</code>：生成從起始值到結束值的數字序列。</p>
+<p>條件篩選：</p>
+<p><code>i % 2 == 0</code>：篩選偶數。</p>
+<p><code>'8' not in str(i)</code>：避開包含字符 <code>'8'</code> 的數字。</p>
+<p><code>sum()</code> 計算符合條件的數字總和。</p>
+<p></p>
+<p>心得感想:透過這次的練習，學會了使用 <code>range()</code> 建立數列，並結合條件篩選出特定數字的方法，如避開數字中包含 <code>'8'</code> 或只處理偶數。運用 <code>if</code> 和 <code>sum()</code> 等語法讓程式邏輯更清晰。</p>
+<p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
