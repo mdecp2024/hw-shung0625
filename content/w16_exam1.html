@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,17 +141,103 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Brython-1.html'>Next</a> >> Brython-1<br /><h1>Final Report</h1>
-<p>期末口頭與書面專題報告 (20%)</p>
-<p>期末口頭專題報告影片:</p>
-<p style="padding-left: 30px;">......</p>
-<p>期末書面專題報告檔案 (pdf):</p>
-<p style="padding-left: 30px;">......</p>
-<p>電腦輔助設計與實習課程總結心得:</p>
-<p style="padding-left: 30px;">......</p>
-<p>期末報告自評成績:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 Final Report 自評分數輸入 cp2024 自評表單中.</p>
-<br />HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Brython-1.html'>Next</a> >> Brython-1</div>
+    <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3<br /><h1>w16_exam1</h1>
+<p><a href="https://fuzzy-space-capybara-wrgr9j55jrwv27g-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/f20344275693d6e41c19ec7aca8ac6a5/raw/b06906317b170148997ca27a4f4125409daaef47/w16_exam1.py">題目圖形程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document
+from browser.html import CANVAS
+import math
+
+# Create and append a canvas element to the document
+canvas = CANVAS(width=500, height=200, style={"border": "1px solid black"})
+document &lt;= canvas
+
+# Get the 2D drawing context
+ctx = canvas.getContext("2d")
+
+# Define helper functions to draw shapes
+def draw_hexagon(x, y, size, color):
+    ctx.beginPath()
+    for i in range(6):
+        angle = 2 * math.pi * i / 6
+        xi = x + size * math.cos(angle)
+        yi = y + size * math.sin(angle)
+        if i == 0:
+            ctx.moveTo(xi, yi)
+        else:
+            ctx.lineTo(xi, yi)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_diamond(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y - height / 2)  # Top
+    ctx.lineTo(x + width / 2, y)  # Right
+    ctx.lineTo(x, y + height / 2)  # Bottom
+    ctx.lineTo(x - width / 2, y)  # Left
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_triangle(x, y, size, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y)  # Bottom-left
+    ctx.lineTo(x + size, y)  # Bottom-right
+    ctx.lineTo(x + size / 2, y - size)  # Top
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_circle(x, y, radius, color):
+    ctx.beginPath()
+    ctx.arc(x, y, radius, 0, 2 * math.pi)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_rectangle(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.rect(x, y, width, height)
+    ctx.fillStyle = color
+    ctx.fill()
+
+# Define origin coordinates
+origin_x, origin_y = 31, 45
+
+# Pixel size for lines
+pixel = 2
+
+# Draw X-axis (to the right)
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)
+ctx.lineTo(canvas.width, origin_y)
+ctx.lineWidth = pixel
+ctx.strokeStyle = "black"
+ctx.stroke()
+
+# Draw Y-axis (downwards)
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)
+ctx.lineTo(origin_x, canvas.height)
+ctx.lineWidth = pixel
+ctx.strokeStyle = "black"
+ctx.stroke()
+
+# Mark the origin point with text
+ctx.font = "12px Arial"
+ctx.fillStyle = "black"
+ctx.fillText(f"({origin_x}, {origin_y})", origin_x + 5, origin_y - 5)
+
+# Draw shapes
+draw_hexagon(100, 100, 30, "orange")         # Hexagon
+draw_diamond(170, 100, 50, 50, "teal")       # Diamond
+draw_triangle(230, 140, 40, "lightblue")     # Triangle
+draw_circle(300, 100, 30, "magenta")         # Circle
+draw_rectangle(360, 80, 60, 60, "yellow")    # Square
+draw_rectangle(450, 90, 80, 30, "blue")      # Rectangle</pre>
+<p></p>
+<p><img alt="" height="149" src="./../images/螢幕擷取畫面 2024-12-26 145332.png" width="393"/></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/jRYcG1actfU" width="560"></iframe></p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
       <div class="container">

@@ -779,7 +779,103 @@ print(f"從 1 到 100 的累加結果（避開數字中包含 '8' 且僅偶數�
 <h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h1>HW 3</h1>
+<h3>w16_exam1</h3>
+<p><a href="https://fuzzy-space-capybara-wrgr9j55jrwv27g-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/f20344275693d6e41c19ec7aca8ac6a5/raw/b06906317b170148997ca27a4f4125409daaef47/w16_exam1.py">題目圖形程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document
+from browser.html import CANVAS
+import math
+
+# Create and append a canvas element to the document
+canvas = CANVAS(width=500, height=200, style={"border": "1px solid black"})
+document &lt;= canvas
+
+# Get the 2D drawing context
+ctx = canvas.getContext("2d")
+
+# Define helper functions to draw shapes
+def draw_hexagon(x, y, size, color):
+    ctx.beginPath()
+    for i in range(6):
+        angle = 2 * math.pi * i / 6
+        xi = x + size * math.cos(angle)
+        yi = y + size * math.sin(angle)
+        if i == 0:
+            ctx.moveTo(xi, yi)
+        else:
+            ctx.lineTo(xi, yi)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_diamond(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y - height / 2)  # Top
+    ctx.lineTo(x + width / 2, y)  # Right
+    ctx.lineTo(x, y + height / 2)  # Bottom
+    ctx.lineTo(x - width / 2, y)  # Left
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_triangle(x, y, size, color):
+    ctx.beginPath()
+    ctx.moveTo(x, y)  # Bottom-left
+    ctx.lineTo(x + size, y)  # Bottom-right
+    ctx.lineTo(x + size / 2, y - size)  # Top
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_circle(x, y, radius, color):
+    ctx.beginPath()
+    ctx.arc(x, y, radius, 0, 2 * math.pi)
+    ctx.closePath()
+    ctx.fillStyle = color
+    ctx.fill()
+
+def draw_rectangle(x, y, width, height, color):
+    ctx.beginPath()
+    ctx.rect(x, y, width, height)
+    ctx.fillStyle = color
+    ctx.fill()
+
+# Define origin coordinates
+origin_x, origin_y = 31, 45
+
+# Pixel size for lines
+pixel = 2
+
+# Draw X-axis (to the right)
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)
+ctx.lineTo(canvas.width, origin_y)
+ctx.lineWidth = pixel
+ctx.strokeStyle = "black"
+ctx.stroke()
+
+# Draw Y-axis (downwards)
+ctx.beginPath()
+ctx.moveTo(origin_x, origin_y)
+ctx.lineTo(origin_x, canvas.height)
+ctx.lineWidth = pixel
+ctx.strokeStyle = "black"
+ctx.stroke()
+
+# Mark the origin point with text
+ctx.font = "12px Arial"
+ctx.fillStyle = "black"
+ctx.fillText(f"({origin_x}, {origin_y})", origin_x + 5, origin_y - 5)
+
+# Draw shapes
+draw_hexagon(100, 100, 30, "orange")         # Hexagon
+draw_diamond(170, 100, 50, 50, "teal")       # Diamond
+draw_triangle(230, 140, 40, "lightblue")     # Triangle
+draw_circle(300, 100, 30, "magenta")         # Circle
+draw_rectangle(360, 80, 60, 60, "yellow")    # Square
+draw_rectangle(450, 90, 80, 30, "blue")      # Rectangle</pre>
+<p></p>
+<p><img alt="" height="149" src="/images/螢幕擷取畫面 2024-12-26 145332.png" width="393"/></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/jRYcG1actfU" width="560"></iframe></p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
