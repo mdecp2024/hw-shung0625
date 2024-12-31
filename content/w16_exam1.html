@@ -142,101 +142,101 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3<br /><h1>w16_exam1</h1>
-<p><a href="https://fuzzy-space-capybara-wrgr9j55jrwv27g-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/f20344275693d6e41c19ec7aca8ac6a5/raw/b06906317b170148997ca27a4f4125409daaef47/w16_exam1.py">題目圖形程式碼</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document
-from browser.html import CANVAS
-import math
+<p><a href="https://fuzzy-space-capybara-wrgr9j55jrwv27g-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/f20344275693d6e41c19ec7aca8ac6a5/raw/165318534d3f4bb38e05ad8ecfa2fee59851aa60/w16_exam1.py">題目圖形程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
 
-# Create and append a canvas element to the document
-canvas = CANVAS(width=500, height=200, style={"border": "1px solid black"})
-document &lt;= canvas
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
 
-# Get the 2D drawing context
+# 取得 canvas 的繪圖上下文
 ctx = canvas.getContext("2d")
 
-# Define helper functions to draw shapes
-def draw_hexagon(x, y, size, color):
-    ctx.beginPath()
-    for i in range(6):
-        angle = 2 * math.pi * i / 6
-        xi = x + size * math.cos(angle)
-        yi = y + size * math.sin(angle)
-        if i == 0:
-            ctx.moveTo(xi, yi)
-        else:
-            ctx.lineTo(xi, yi)
-    ctx.closePath()
-    ctx.fillStyle = color
-    ctx.fill()
-
-def draw_diamond(x, y, width, height, color):
-    ctx.beginPath()
-    ctx.moveTo(x, y - height / 2)  # Top
-    ctx.lineTo(x + width / 2, y)  # Right
-    ctx.lineTo(x, y + height / 2)  # Bottom
-    ctx.lineTo(x - width / 2, y)  # Left
-    ctx.closePath()
-    ctx.fillStyle = color
-    ctx.fill()
-
-def draw_triangle(x, y, size, color):
-    ctx.beginPath()
-    ctx.moveTo(x, y)  # Bottom-left
-    ctx.lineTo(x + size, y)  # Bottom-right
-    ctx.lineTo(x + size / 2, y - size)  # Top
-    ctx.closePath()
-    ctx.fillStyle = color
-    ctx.fill()
-
-def draw_circle(x, y, radius, color):
-    ctx.beginPath()
-    ctx.arc(x, y, radius, 0, 2 * math.pi)
-    ctx.closePath()
-    ctx.fillStyle = color
-    ctx.fill()
-
-def draw_rectangle(x, y, width, height, color):
-    ctx.beginPath()
-    ctx.rect(x, y, width, height)
-    ctx.fillStyle = color
-    ctx.fill()
-
-# Define origin coordinates
-origin_x, origin_y = 31, 45
-
-# Pixel size for lines
-pixel = 2
-
-# Draw X-axis (to the right)
+# 畫出 X 軸
 ctx.beginPath()
-ctx.moveTo(origin_x, origin_y)
-ctx.lineTo(canvas.width, origin_y)
-ctx.lineWidth = pixel
-ctx.strokeStyle = "black"
+ctx.strokeStyle = 'black'
+ctx.lineWidth = 2
+ctx.moveTo(31, 45)  # 原點
+ctx.lineTo(400, 45)  # 向右延伸
 ctx.stroke()
 
-# Draw Y-axis (downwards)
+# 標示 X 軸方向
+ctx.font = "14px Arial"
+ctx.fillStyle = "black"
+ctx.fillText("X+", 410, 50)
+
+# 畫出 Y 軸
 ctx.beginPath()
-ctx.moveTo(origin_x, origin_y)
-ctx.lineTo(origin_x, canvas.height)
-ctx.lineWidth = pixel
-ctx.strokeStyle = "black"
+ctx.moveTo(31, 45)  # 原點
+ctx.lineTo(31, 400)  # 向下延伸
 ctx.stroke()
 
-# Mark the origin point with text
+# 標示 Y 軸方向
+ctx.fillText("Y+", 10, 410)
+
+# 標示原點座標
 ctx.font = "12px Arial"
 ctx.fillStyle = "black"
-ctx.fillText(f"({origin_x}, {origin_y})", origin_x + 5, origin_y - 5)
+ctx.fillText("(31, 45)", 35, 35)
 
-# Draw shapes
-draw_hexagon(100, 100, 30, "orange")         # Hexagon
-draw_diamond(170, 100, 50, 50, "teal")       # Diamond
-draw_triangle(230, 140, 40, "lightblue")     # Triangle
-draw_circle(300, 100, 30, "magenta")         # Circle
-draw_rectangle(360, 80, 60, 60, "yellow")    # Square
-draw_rectangle(450, 90, 80, 30, "blue")      # Rectangle</pre>
+# 位移偏移量，將原點 (31, 45) 作為新的繪圖基準
+offset_x = 31
+offset_y = 45
+
+# 畫橙色六邊形
+ctx.beginPath()
+ctx.fillStyle = "#F47920"
+ctx.moveTo(offset_x + 40, offset_y + 63)
+ctx.lineTo(offset_x + 60, offset_y + 33)
+ctx.lineTo(offset_x + 90, offset_y + 33)
+ctx.lineTo(offset_x + 110, offset_y + 63)
+ctx.lineTo(offset_x + 90, offset_y + 93)
+ctx.lineTo(offset_x + 60, offset_y + 93)
+ctx.closePath()
+ctx.fill()
+
+# 畫綠色菱形
+ctx.beginPath()
+ctx.fillStyle = "#009F95"
+ctx.moveTo(offset_x + 130, offset_y + 63)
+ctx.lineTo(offset_x + 150, offset_y + 33)
+ctx.lineTo(offset_x + 170, offset_y + 63)
+ctx.lineTo(offset_x + 150, offset_y + 93)
+ctx.closePath()
+ctx.fill()
+
+# 藍色三角形 (頂點在菱形右側，方向朝下)
+ctx.beginPath()
+ctx.fillStyle = "#40B4CB"
+ctx.moveTo(offset_x + 174, offset_y + 63)  # 頂點在菱形右側
+ctx.lineTo(offset_x + 154, offset_y + 93)  # 左下角
+ctx.lineTo(offset_x + 194, offset_y + 93)  # 右下角
+ctx.closePath()
+ctx.fill()
+
+# 畫粉紅色圓形
+ctx.beginPath()
+ctx.fillStyle = "#EB008B"
+ctx.arc(offset_x + 220, offset_y + 63, 20, 0, 2 * 3.14159)
+ctx.fill()
+
+# 畫黃色正方形
+ctx.beginPath()
+ctx.fillStyle = "#FDD56A"
+ctx.rect(offset_x + 260, offset_y + 43, 40, 40)
+ctx.fill()
+
+# 畫藍色矩形
+ctx.beginPath()
+ctx.fillStyle = "#003A70"
+ctx.rect(offset_x + 320, offset_y + 53, 60, 20)
+ctx.fill()
+</pre>
 <p></p>
-<p><img alt="" height="149" src="./../images/螢幕擷取畫面 2024-12-26 145332.png" width="393"/></p>
+<p><img alt="" height="383" src="./../images/螢幕擷取畫面 2024-12-31 115527.png" width="419"/></p>
+<p></p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/jRYcG1actfU" width="560"></iframe></p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
