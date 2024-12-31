@@ -882,7 +882,71 @@ ctx.fill()
 <h2>HW 3 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h3>w16_exam2</h3><h1>HW 4</h1>
+<h3>w16_exam2</h3>
+<p><a href="https://fuzzy-space-capybara-wrgr9j55jrwv27g-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/a33de0cd35ace73794d96e8319de774d/raw/36126581ad73a81d9dc76908fde568139026a068/w16_exam2.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+ 
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=300, height=300)  # 設定迹履畫布大小
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+ 
+# 取得 canvas 的繪圖上下文
+ctx = canvas.getContext("2d")
+ 
+# 標示左上方點座標 (31, 45)
+ctx.font = "12px Arial"
+ctx.fillStyle = "red"
+ctx.fillText("(31, 45)", 35, 40)
+ 
+# 定義藍色線條的屬性
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 2
+ 
+# 開始繪製迹履 (\u5ea7\u6a19\u504f\u79fb\u4ee5 (31, 45) \u70ba\u8d77\u9ede)
+offset_x = 31
+offset_y = 45
+ 
+# 繪製迹履線條
+ctx.beginPath()
+ctx.moveTo(offset_x + 0, offset_y + 0) 
+ctx.lineTo(offset_x + 86, offset_y + 0)
+ctx.moveTo(offset_x + 0, offset_y + 0)
+ctx.lineTo(offset_x + 0, offset_y + 200)
+ctx.moveTo(offset_x + 120, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 0)
+ctx.moveTo(offset_x + 200, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 200)
+ctx.lineTo(offset_x + 120, offset_y + 200)
+ctx.moveTo(offset_x + 200, offset_y + 200)
+ctx.moveTo(offset_x + 0, offset_y + 200) 
+ctx.lineTo(offset_x + 86, offset_y + 200)
+ctx.moveTo(offset_x + 86, offset_y + 157) 
+ctx.lineTo(offset_x + 86, offset_y + 200)
+ctx.moveTo(offset_x + 86, offset_y + 157) 
+ctx.lineTo(offset_x + 126, offset_y + 157)
+ctx.moveTo(offset_x + 160, offset_y + 120) 
+ctx.lineTo(offset_x + 160, offset_y + 200)
+ctx.moveTo(offset_x + 160, offset_y + 120) 
+ctx.lineTo(offset_x + 50, offset_y + 120)
+ctx.moveTo(offset_x + 50, offset_y + 120) 
+ctx.lineTo(offset_x + 50, offset_y + 163)
+ctx.moveTo(offset_x + 126, offset_y + 80) 
+ctx.lineTo(offset_x + 126, offset_y + 120)
+ctx.moveTo(offset_x + 0, offset_y + 80) 
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 86, offset_y + 40) 
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 40, offset_y + 40) 
+ctx.lineTo(offset_x + 160, offset_y + 40)
+ctx.moveTo(offset_x + 160, offset_y + 40) 
+ctx.lineTo(offset_x + 160, offset_y + 83)
+ctx.stroke()
+</pre>
+<p></p>
+<p><img alt="" height="191" src="/images/螢幕擷取畫面 2024-12-31 154918.png" width="196"/></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/32bQ9RhtK5A" width="560"></iframe></p><h1>HW 4</h1>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
