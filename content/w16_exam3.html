@@ -142,8 +142,108 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report<br /><h1>w16_exam3</h1>
-<p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 4 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p><br />HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report</div>
+<p></p>
+<p><a href="https://fuzzy-space-capybara-wrgr9j55jrwv27g-8081.app.github.dev/content/Brython-1.html?src=https://gist.githubusercontent.com/shung0625/9e5cfacc9e8703b2ff2a652da0b22cba/raw/8147ebf9658dd2179cbf79b7a3d6531ec556f946/w16_exam3.py">程式碼</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=300, height=300)  # 設定迷宮畫布大小
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+# 取得 canvas 的繪圖上下文
+ctx = canvas.getContext("2d")
+
+# 標示左上方點座標 (31, 45)
+ctx.font = "12px Arial"
+ctx.fillStyle = "red"
+ctx.fillText("(31, 45)", 35, 40)
+
+# 定義藍色線條的屬性
+ctx.strokeStyle = "black"
+ctx.lineWidth = 2
+
+# 開始繪製迷宮 (座標偏移以 (31, 45) 為起點)
+offset_x = 31
+offset_y = 45
+
+# 繪製迷宮線條
+ctx.beginPath()
+ctx.moveTo(offset_x + 0, offset_y + 0) 
+ctx.lineTo(offset_x + 86, offset_y + 0)
+ctx.moveTo(offset_x + 0, offset_y + 0)
+ctx.lineTo(offset_x + 0, offset_y + 200)
+ctx.moveTo(offset_x + 120, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 0)
+ctx.moveTo(offset_x + 200, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 200)
+ctx.lineTo(offset_x + 120, offset_y + 200)
+ctx.moveTo(offset_x + 200, offset_y + 200)
+ctx.moveTo(offset_x + 0, offset_y + 200) 
+ctx.lineTo(offset_x + 86, offset_y + 200)
+ctx.moveTo(offset_x + 86, offset_y + 157) 
+ctx.lineTo(offset_x + 86, offset_y + 200)
+ctx.moveTo(offset_x + 86, offset_y + 157) 
+ctx.lineTo(offset_x + 126, offset_y + 157)
+ctx.moveTo(offset_x + 160, offset_y + 120) 
+ctx.lineTo(offset_x + 160, offset_y + 200)
+ctx.moveTo(offset_x + 160, offset_y + 120) 
+ctx.lineTo(offset_x + 50, offset_y + 120)
+ctx.moveTo(offset_x + 50, offset_y + 120) 
+ctx.lineTo(offset_x + 50, offset_y + 163)
+ctx.moveTo(offset_x + 126, offset_y + 80) 
+ctx.lineTo(offset_x + 126, offset_y + 120)
+ctx.moveTo(offset_x + 0, offset_y + 80) 
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 86, offset_y + 40) 
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 40, offset_y + 40) 
+ctx.lineTo(offset_x + 160, offset_y + 40)
+ctx.moveTo(offset_x + 160, offset_y + 40) 
+ctx.lineTo(offset_x + 160, offset_y + 83)
+ctx.stroke()
+
+# 改為紅色線條的屬性
+ctx.strokeStyle = "red"
+ctx.lineWidth = 2
+ctx.beginPath()
+ctx.moveTo(offset_x + 100, offset_y + 0) 
+ctx.lineTo(offset_x + 100, offset_y + 20)
+ctx.moveTo(offset_x + 100, offset_y + 20) 
+ctx.lineTo(offset_x + 175, offset_y + 20)
+ctx.moveTo(offset_x + 175, offset_y + 20)
+ctx.lineTo(offset_x + 175, offset_y + 100)
+ctx.moveTo(offset_x + 175, offset_y + 100)
+ctx.lineTo(offset_x + 145, offset_y + 100)
+ctx.moveTo(offset_x + 145, offset_y + 100)
+ctx.lineTo(offset_x + 145, offset_y + 65)
+ctx.moveTo(offset_x + 145, offset_y + 65)
+ctx.lineTo(offset_x + 110, offset_y + 65)
+ctx.moveTo(offset_x + 110, offset_y + 65)
+ctx.lineTo(offset_x + 110, offset_y + 100)
+ctx.moveTo(offset_x + 110, offset_y + 100)
+ctx.lineTo(offset_x + 25, offset_y + 100)
+ctx.moveTo(offset_x + 25, offset_y + 100)
+ctx.lineTo(offset_x + 25, offset_y + 180)
+ctx.moveTo(offset_x + 25, offset_y + 180)
+ctx.lineTo(offset_x + 70, offset_y + 180)
+ctx.moveTo(offset_x + 70, offset_y + 180)
+ctx.lineTo(offset_x + 70, offset_y + 145)
+ctx.moveTo(offset_x + 70, offset_y + 145)
+ctx.lineTo(offset_x + 145, offset_y + 145)
+ctx.moveTo(offset_x + 145, offset_y + 145)
+ctx.lineTo(offset_x + 145, offset_y + 180)
+ctx.moveTo(offset_x + 145, offset_y + 180)
+ctx.lineTo(offset_x + 100, offset_y + 180)
+ctx.moveTo(offset_x + 100, offset_y + 180)
+ctx.lineTo(offset_x + 100, offset_y + 200)
+ctx.moveTo(offset_x + 100, offset_y + 200)
+ctx.stroke()
+</pre>
+<p></p>
+<p><img alt="" height="213" src="./../images/螢幕擷取畫面 2024-12-31 160823.png" width="214"/></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/f_cktderD_s" width="560"></iframe></p><br />HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report</div>
         
     <!-- footer -->
       <div class="container">
